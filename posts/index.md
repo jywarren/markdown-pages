@@ -1,7 +1,7 @@
-[home](#) [about](#about) [posts](#posts)
 
 ## Posts
 
 [include:posts/4]
 
+this is a test.
 

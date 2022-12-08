@@ -1,6 +1,5 @@
-[home](#) [about](#about) [posts](#posts/)
 
-## Home
+# Home
 
 this my **homepage**
 
