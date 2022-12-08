@@ -9,17 +9,26 @@ function detectPath() {
 
 function fetchPath(path, element) {
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-  fetch(path + '.md',{
-    cache: 'no-cache'
-    // cors issue but could serve locally
+  if (path.substr(-3, 3) !== '.md') path += '.md'
+  fetch(path,{
+    cache: 'no-cache',
     // mode: 'cors', // no-cors, *cors, same-origin
+    mode: 'cors'
   })
     .then((response) => response.text())
     .then((text) => {
-  element ||= document.body;
+      // break this into its own function displayText()
+      element ||= document.body;
       output = marked.parse(text);
       output = parseIncludes(output);
       element.innerHTML = output;
+      // identify relative paths like [link](posts/4.md) & prefix as #posts/4.md
+      let links = Array.from(element.getElementsByTagName('a'));
+      links.forEach(function(link) {
+        let href = link.attributes['href'].value;
+        if (href[0] !== "h") link.attributes['href'].value = "#" + href;
+
+      });
     });
 }
 
