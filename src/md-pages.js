@@ -7,7 +7,8 @@ function detectPath() {
   return path;
 }
 
-function fetchPath(path, element) {
+function fetchPath(path, _element) {
+  let element = _element ? _element : document.body;
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   if (path.substr(-3, 3) !== '.md') path += '.md'
   fetch(path,{
@@ -18,7 +19,7 @@ function fetchPath(path, element) {
     .then((response) => response.text())
     .then((text) => {
       // break this into its own function displayText()
-      element ||= document.body;
+      console.log('inserting into', element);
       output = marked.parse(text);
       output = parseIncludes(output);
       element.innerHTML = output;
@@ -32,7 +33,7 @@ function fetchPath(path, element) {
     });
 }
 
-fetchPath(detectPath());
+fetchPath(detectPath(), document.getElementsByClassName('md-pages')[0]);
 
 window.onhashchange = function() {
   fetchPath(detectPath());

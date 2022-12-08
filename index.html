@@ -7,10 +7,18 @@
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/spectre-markdown.css/dist/markdown.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Lora">
     <link rel="stylesheet" href="style.css">
     <script src="node_modules/marked/marked.min.js"></script>
-    <script src="src/md-pages.js"></script>
   </head>
-  <body class="markdown-css responsive"> 
+  <body>
+    <header>
+      <a href="/">home</a>
+      <a href="about">about</a>
+      <a href="##posts/">posts</a>
+    </header>
+    <div class="md-pages markdown-css responsive"></div>
+    <script src="src/md-pages.js"></script>
   </body>
 </html>

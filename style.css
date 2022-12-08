@@ -1,9 +1,34 @@
 html {
-  background: #eee;
-  padding: 10px auto;
+  background: #ebeff1;
+  padding: 20px;
 }
 
 body {
   background: #fff;
+  padding: 10px auto;
   margin: 30px auto;
+  max-width: 1000px;
+}
+
+body,
+.markdown-css {
+  font-family: Lora, serif;
+}
+
+a,
+.markdown-css a {
+  color: #63a3bd;
+}
+
+.markdown-css h1 {
+  font-weight: normal;
+  font-size: 48px;
+}
+
+header {
+  padding: 12px;
+}
+
+header a {
+  padding: 12px 4px;
 }
