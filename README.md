@@ -1,4 +1,4 @@
-# md-pages
+# markdown-pages
 Minimal Markdown-based static sites in JavaScript, no server
 
 run locally with `http-server` until we work around CORS when serving from a folder
