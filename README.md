@@ -1,7 +1,7 @@
 # markdown-pages
 Minimal Markdown-based static sites in JavaScript, no server
 
-Runs easily on GitHub Pages; example: https://github.com/jywarren/seeing-lost-enclaves
+Runs easily on GitHub Pages; example: https://jywarren.github.io/markdown-pages-template/
 
 Run locally with [http-server](https://www.npmjs.com/package/http-server) until we work around CORS when serving from a folder.
 
@@ -39,4 +39,8 @@ I have some stylesheets and the Lora font from Google Fonts, which is why my pag
 <link rel="stylesheet" href="style.css">
 ```
 
+### Header and footer
 
+Add header and footer to `index.html` example:
+
+https://github.com/jywarren/markdown-pages-template/blob/2e20eebeeeb86f7cd3d60807ddb5ee535b0cfd42/index.html#L15-L18
