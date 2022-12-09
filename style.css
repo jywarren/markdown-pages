@@ -5,9 +5,12 @@ html {
 
 body {
   background: #fff;
-  padding: 10px auto;
+  padding: 20px auto;
   margin: 30px auto;
-  max-width: 1000px;
+  max-width: 900px;
+  border-width: 0 2px 2px 0;
+  border-color: #c7d4da;
+  border-style: solid;
 }
 
 body,

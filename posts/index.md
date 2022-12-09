@@ -3,5 +3,5 @@
 
 [include:posts/4]
 
-this is a test.
+This is a test. It should display post 4 (4.md) above as an "include".
 

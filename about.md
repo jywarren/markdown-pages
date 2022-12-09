@@ -2,4 +2,4 @@
 
 This is the about page. 
 
-[Back to home](#)
+[Back to home](/)

@@ -15,5 +15,5 @@ You'll need `marked.js` and `md-pages.js`:
 
 ## Link handling
 
-It will begin by loading `/index.md` by default. All links relative to there (`posts/4.md` for example) will have a `#` prefixed so that they are fetched and parsed into markdown for a URL format like https://jywarren.github.io/md-pages/#posts/4.md
+It will begin by loading `/index.md` by default. All links relative to there (`posts/4.md` for example) will have a `#` prefixed so that they are fetched and parsed into markdown for a URL format like https://jywarren.github.io/markdown-pages/#posts/4.md
 

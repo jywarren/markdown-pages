@@ -1,5 +1,5 @@
 {
-  "name": "md-pages",
+  "name": "markdown-pages",
   "version": "0.0.1",
   "description": "Minimal Markdown-based static sites in JavaScript, no server",
   "main": "src/md-pages.js",
