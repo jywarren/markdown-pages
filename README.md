@@ -9,6 +9,8 @@ Also an NPM package: https://www.npmjs.com/package/markdown-pages
 
 ## Usage
 
+Quick start: download or fork this (CC-0) template: https://github.com/jywarren/markdown-pages-template
+
 You'll need `marked.js` and `md-pages.js` at the end of an `index.html` page in your root directory:
 
 ```html
