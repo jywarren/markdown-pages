@@ -39,6 +39,17 @@ I have some stylesheets and the Lora font from Google Fonts, which is why my pag
 <link rel="stylesheet" href="style.css">
 ```
 
+For example, to make images go edge-to-edge on the page, you can use:
+
+```css
+/* breaks out of content div and presents edge-to-edge content without absolute positioning */
+.markdown-css p img {
+  width:100.5vw !important;
+  margin:0 calc((100% / 2) - 50vw) !important;
+  max-width: none;
+}
+```
+
 ### Header and footer
 
 Add header and footer to `index.html` example:
