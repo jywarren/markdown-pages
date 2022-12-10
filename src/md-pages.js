@@ -57,7 +57,7 @@ function parseIncludes(text) {
     },0);
     return "<div id='include-" + p2 + "'></div>";
   }
-  return text.replace(/(?<![\>`])(\<p\>)?\[include\:(\S+)\]/, replaceIncludes)
+  return text.replace(/(?:[\>`])(\<p\>)?\[include\:(\S+)\]/, replaceIncludes)
 }
 
 })()
