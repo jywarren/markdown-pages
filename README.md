@@ -1,19 +1,57 @@
-# md-pages
+# markdown-pages
 Minimal Markdown-based static sites in JavaScript, no server
 
-run locally with `http-server` until we work around CORS when serving from a folder
+Runs easily on GitHub Pages; example: https://jywarren.github.io/markdown-pages-template/
 
+Run locally with [http-server](https://www.npmjs.com/package/http-server) until we work around CORS when serving from a folder.
+
+Also an NPM package: https://www.npmjs.com/package/markdown-pages
 
 ## Usage
 
-You'll need `marked.js` and `md-pages.js`:
+Quick start: download or fork this (CC-0) template: https://github.com/jywarren/markdown-pages-template
+
+You'll need `marked.js` and `md-pages.js` at the end of an `index.html` page in your root directory:
 
 ```html
-<script src="node_modules/marked/marked.min.js"></script>
-<script src="node_modules/md-pages/src/md-pages.js"></script>
+<script src="https://jywarren.github.io/markdown-pages/node_modules/marked/marked.min.js"></script>
+<script src="https://jywarren.github.io/markdown-pages/src/md-pages.js"></script>
+
 ```
 
-## Link handling
+Start by adding an `index.md`, which will serve at `/`. To add more pages, just add more `.md` files, so for example `about.md` will appear at `/#about` or `/#about.md`. 
 
-It will begin by loading `/index.md` by default. All links relative to there (`posts/4.md` for example) will have a `#` prefixed so that they are fetched and parsed into markdown for a URL format like https://jywarren.github.io/markdown-pages/#posts/4.md
+## Links
 
+Just write relative links normally, like if you have a file in your root directory named `about.md` the link to it should be `[my link](about.md)`. You can leave off the `.md` too: `[my link](about)`.
+
+How this works: your site will start by loading `/index.md` by at your root directory. All links relative to there (`posts/4.md` for example) will have a `#` prefixed so that they are fetched and parsed into markdown for a URL format like https://jywarren.github.io/markdown-pages/#posts/4.md So it's just an extra `#` at the root level of your site. 
+
+So when you share a link with someone else, just copy paste it -- it'll be something like https://example.com/#about
+
+## Customizing
+
+I have some stylesheets and the Lora font from Google Fonts, which is why my pages look nice!
+
+```html
+<link rel="stylesheet" href="https://jywarren.github.io/markdown-pages/node_modules/spectre-markdown.css/dist/markdown.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora">
+<link rel="stylesheet" href="style.css">
+```
+
+For example, to make images go edge-to-edge on the page, you can use:
+
+```css
+/* breaks out of content div and presents edge-to-edge content without absolute positioning */
+.markdown-css p img {
+  width:100.5vw !important;
+  margin:0 calc((100% / 2) - 50vw) !important;
+  max-width: none;
+}
+```
+
+### Header and footer
+
+Add header and footer to `index.html` example:
+
+https://github.com/jywarren/markdown-pages-template/blob/2e20eebeeeb86f7cd3d60807ddb5ee535b0cfd42/index.html#L15-L18

@@ -1,17 +1,17 @@
 {
   "name": "markdown-pages",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Minimal Markdown-based static sites in JavaScript, no server",
   "main": "src/md-pages.js",
   "author": "Jeffrey Yoo Warren",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/jywarren/md-pages/issues"
+    "url": "https://github.com/jywarren/markdown-pages/issues"
   },
-  "homepage": "https://github.com/jywarren/md-pages",
+  "homepage": "https://github.com/jywarren/markdown-pages",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jywarren/md-pages.git"
+    "url": "https://github.com/jywarren/markdown-pages.git"
   },
   "dependencies": {
     "bootstrap": "^5.2.2",
