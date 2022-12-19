@@ -6,6 +6,7 @@ fetchPath(detectPath(), mdElement);
 
 function detectPath() {
   let path = document.location.hash.split("#")[1];
+  // console.log(history.state);
   path ||= "index";
   if (path[path.length - 1] === "/") path += "index"
   return path;
@@ -39,11 +40,23 @@ function displayText(text, element) {
   let links = Array.from(element.getElementsByTagName('a'));
   links.forEach(function(link) {
     let href = link.attributes['href'].value;
+    // rewrite for history API using changeUrl()
     if (href === "/") link.attributes['href'].value = document.location.href.split('#')[0];
     else if (href[0] !== "h") link.attributes['href'].value = "#" + href;
   });
 }
 
+/*
+// change URL w History API, overriding normal <a> link behavior
+function changeURL(url) {
+  history.pushState("data", "" , url);
+}
+// back button:
+window.addEventListener('popstate', e => console.log(e);fetchPath(detectPath(), mdElement); );
+maybe:
+// fwd button:
+window.addEventListener('pushstate', e => console.log(e);fetchPath(detectPath(), mdElement); );
+*/
 window.onhashchange = function() {
   fetchPath(detectPath(), mdElement);
 }
