@@ -35,13 +35,42 @@ function displayText(text, element) {
   output = marked.parse(text);
   output = parseIncludes(output);
   element.innerHTML = output;
+  let root = document.location.href.split('#')[0];
+  let current_path = document.location.href.split('#')[1];
   // identify relative paths like [link](posts/4.md) & prefix as #posts/4.md
   let links = Array.from(element.getElementsByTagName('a'));
-  links.forEach(function(link) {
+  links.forEach(function parseUrl(link) {
     let href = link.attributes['href'].value;
-    if (href === "/") link.attributes['href'].value = document.location.href.split('#')[0];
-    else if (href[0] !== "h") link.attributes['href'].value = "#" + href;
+    if (href === "/") link.attributes['href'].value = current_path;
+    else if (href.substr(0, 3) === "../") {
+      href = absolutize_path(href, current_path);
+      link.attributes['href'].value = "#" + href;
+    } else if (href[0] !== "h") link.attributes['href'].value = "#" + href;
   });
+  let images = Array.from(element.getElementsByTagName('img'));
+  images.forEach(function parseUrl(image) {
+    let src = image.attributes['src'].value;
+    if (src.substr(0, 3) === "../") {
+      src = absolutize_path(src, current_path);
+      image.attributes['src'].value = root + src;
+    }
+  });
+}
+
+// convert paths starting with 1 or more  "../" to an absolute path
+function absolutize_path(path, current_path) {
+  if (path.substr(0, 3) === "../") {
+    // remove "../"
+    path = path.slice(3, path.length);
+    // drop trailing "/"
+    if (current_path.substr(current_path.length - 1) == "/") current_path = current_path.substr(0, current_path.length - 2);
+    let absolute_path_array = current_path.split("/");
+    // drop last path directory
+    absolute_path_array.pop();
+    absolute_path_array.pop();
+    path = absolute_path_array.join("/") + path;
+    return absolutize_path(path, current_path);
+  } else return path;
 }
 
 window.onhashchange = function() {

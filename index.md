@@ -9,4 +9,5 @@ this my **homepage**
 
 [link to post 4](posts/4.md)
 
+![](images/example.jpg)
 
