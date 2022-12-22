@@ -37,6 +37,13 @@ function displayText(text, element) {
   element.innerHTML = output;
   let root = document.location.href.split('#')[0];
   let current_path = document.location.href.split('#')[1];
+  // distinguish current directory from current path
+  let current_directory = current_path;
+  if (current_path.substr(current_path.length - 1) !== "/") {
+    let path_array = current_path.split("/");
+    // drop last item, which should be an item within the directory
+    current_directory = path_array.slice(0, path_array.length - 1).join("/")
+  }
   // identify relative paths like [link](posts/4.md) & prefix as #posts/4.md
   let links = Array.from(element.getElementsByTagName('a'));
   links.forEach(function parseUrl(link) {
@@ -53,7 +60,7 @@ function displayText(text, element) {
     if (src.substr(0, 3) === "../") {
       src = absolutize_path(src, current_path);
       image.attributes['src'].value = root + src;
-    }
+    } else if (src[0] !== "h") image.attributes['src'].value = current_directory + "/" + src;
   });
 }
 
