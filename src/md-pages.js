@@ -39,7 +39,7 @@ function displayText(text, element) {
   let current_path = document.location.href.split('#')[1];
   // distinguish current directory from current path
   let current_directory = current_path;
-  if (current_path.substr(current_path.length - 1) !== "/") {
+  if (current_path && current_path.substr(current_path.length - 1) !== "/") {
     let path_array = current_path.split("/");
     // drop last item, which should be an item within the directory
     current_directory = path_array.slice(0, path_array.length - 1).join("/")
