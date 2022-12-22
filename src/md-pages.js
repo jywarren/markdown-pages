@@ -28,6 +28,8 @@ function fetchPath(path, element) {
     })
     .then((text) => {
       displayText(text, element);
+      // scroll to top:
+      window.scrollTo(0,0);
     });
 }
 
