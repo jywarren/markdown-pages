@@ -11,6 +11,7 @@ body {
   border-width: 0 2px 2px 0;
   border-color: #c7d4da;
   border-style: solid;
+  overflow-wrap: break-word;
 }
 
 body,
@@ -35,3 +36,4 @@ header {
 header a {
   padding: 12px 4px;
 }
+
